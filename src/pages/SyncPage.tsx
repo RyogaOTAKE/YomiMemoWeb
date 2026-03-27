@@ -99,7 +99,7 @@ export function SyncPage() {
 
           {syncSettings.isSignedIn && (
             <p className="text-xs text-muted" style={{ marginBottom: '6px' }}>
-              🔄 自動同期: 編集後30秒で自動的にDriveへ保存（認証は1時間有効）
+              🔄 自動同期: 編集後10秒で自動的にDriveへ保存（認証は1時間有効）
             </p>
           )}
 

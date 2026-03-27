@@ -70,7 +70,7 @@ const STORAGE_KEY = 'yondalog_data'
 const SYNC_SETTINGS_KEY = 'yondalog_sync_settings'
 
 // 自動同期: 最後の編集から AUTO_SYNC_DELAY ミリ秒後に Drive へ同期
-const AUTO_SYNC_DELAY = 30_000 // 30秒
+const AUTO_SYNC_DELAY = 10_000 // 10秒
 let autoSyncTimer: ReturnType<typeof setTimeout> | null = null
 
 function scheduleAutoSync(isSignedIn: boolean) {
