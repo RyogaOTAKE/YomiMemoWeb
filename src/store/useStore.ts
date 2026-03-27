@@ -502,14 +502,13 @@ export const useStore = create<AppState>((set, get) => ({
         finalBackup = local
         finalFileId = await client.saveToDrive(local, null)
       } else {
-        // マージして保存
-        const { merged, needsRemoteUpdate } = mergeBackups(local, remote.backup)
+        // マージして常に Drive へ書き込む
+        // needsRemoteUpdate の判定に頼ると比較の微差で書き込みがスキップされる場合があるため、
+        // マージ後は毎回アップロードして確実に最新状態を保存する
+        const { merged } = mergeBackups(local, remote.backup)
         finalBackup = merged
         finalFileId = remote.fileId
-
-        if (needsRemoteUpdate) {
-          await client.saveToDrive(merged, remote.fileId)
-        }
+        await client.saveToDrive(merged, remote.fileId)
       }
 
       // ローカル状態を更新
