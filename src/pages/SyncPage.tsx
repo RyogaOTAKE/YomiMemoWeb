@@ -1,7 +1,6 @@
 import { useState, useRef, type ChangeEvent } from 'react'
 import { CloudOff, Cloud, RefreshCw, LogOut, Upload, Download, Clock } from 'lucide-react'
 import { useStore } from '../store/useStore'
-import type { BackupJson } from '../types/models'
 import { parseBackupJson } from '../lib/parseBackup'
 
 export function SyncPage() {
